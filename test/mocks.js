@@ -14,8 +14,9 @@ var crypto = require('crypto')
 var DB_METHOD_NAMES = ['account', 'createAccount', 'createDevice', 'createKeyFetchToken',
                        'createSessionToken', 'deleteAccount', 'deleteDevice', 'deleteKeyFetchToken',
                        'deletePasswordChangeToken', 'deleteVerificationReminder', 'devices',
-                       'emailRecord', 'resetAccount', 'sessions', 'sessionTokenWithVerificationStatus',
-                       'updateDevice', 'verifyEmail', 'verifyTokens']
+                       'emailRecord', 'resetAccount', 'securityEvent', 'securityEvents',
+                       'sessions', 'sessionTokenWithVerificationStatus', 'updateDevice',
+                       'verifyEmail', 'verifyTokens']
 
 var LOG_METHOD_NAMES = ['trace', 'increment', 'info', 'error', 'begin', 'warn', 'timing',
                         'activityEvent', 'notifyAttachedServices']
@@ -47,7 +48,8 @@ function mockDB (data, errors) {
       return P.resolve({
         email: data.email,
         uid: data.uid,
-        verifierSetAt: Date.now()
+        verifierSetAt: Date.now(),
+        wrapWrapKb: data.wrapWrapKb
       })
     }),
     createAccount: sinon.spy(function () {
@@ -111,6 +113,9 @@ function mockDB (data, errors) {
         uid: data.uid,
         wrapWrapKb: crypto.randomBytes(32)
       })
+    }),
+    securityEvents: sinon.spy(function () {
+      return P.resolve([])
     }),
     sessions: sinon.spy(function () {
       return P.resolve([])
