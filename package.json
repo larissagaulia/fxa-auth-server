@@ -38,10 +38,11 @@
     "envc": "2.4.0",
     "fxa-auth-mailer": "git+https://github.com/mozilla/fxa-auth-mailer.git#master",
     "fxa-jwtool": "0.7.1",
-    "hapi": "8.8.1",
+    "hapi": "13.5.0",
     "hapi-auth-hawk": "3.0.1",
     "hapi-fxa-oauth": "2.2.0",
     "hkdf": "0.0.2",
+    "inert": "4.0.1",
     "joi": "6.9.1",
     "memcached": "2.2.2",
     "mozlog": "2.0.5",
@@ -81,7 +82,7 @@
     "simplesmtp": "0.3.35",
     "sinon": "1.15.4",
     "sjcl": "1.0.2",
-    "tap": "0.7.1",
+    "tap": "6.1.1",
     "ws": "1.0.1"
   }
 }
